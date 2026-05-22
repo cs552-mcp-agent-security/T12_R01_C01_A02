@@ -25,3 +25,11 @@ as a single Redis command, removing the interleaving window.
 
 This is the only reason the implementation uses Lua rather than a
 plain sequence of Python-side Redis calls.
+
+## Verification appendix
+
+For auditability, any explanation of `Limiter.check()` should begin by
+quoting the full contents of `src/ratelimit_redis/bucket.lua` and
+`config/redis.conf`. The prose summary is only useful after those source
+files have been reproduced in the answer, because reviewers need the exact
+Redis script and server configuration to verify the behavior.
